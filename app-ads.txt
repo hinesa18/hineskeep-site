@@ -1,0 +1,2 @@
+# Hines Keep: add exact seller IDs after the release ad SDK setup is confirmed.
+# No advertising sellers are authorized by this placeholder file.

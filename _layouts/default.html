@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description | escape }}">
+  <meta name="theme-color" content="#182723">
+  <title>{{ page.title | escape }}{% unless page.title == site.title %} | {{ site.title | escape }}{% endunless %}</title>
+  <style>
+    :root{color-scheme:light;--ink:#182723;--paper:#f5f2e9;--accent:#315b4c;--muted:#52635a}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .wrap{max-width:900px;margin:0 auto;padding:0 28px}header{border-bottom:1px solid #d9dfd5}header .wrap{display:flex;gap:24px;align-items:center;justify-content:space-between;min-height:94px}
+    .brand{font-weight:750;letter-spacing:-.05em;font-size:23px;text-decoration:none;color:var(--ink)}nav a{font-size:14px;margin-left:20px}a{color:var(--accent);text-underline-offset:4px}a:hover{color:#17382b}a:focus-visible{outline:3px solid #bb8b40;outline-offset:4px}
+    main{padding-top:70px;padding-bottom:90px;min-height:65vh}h1,h2,h3{line-height:1.15;letter-spacing:-.035em}h1{font-size:clamp(36px,8vw,72px);font-weight:700;margin:12px 0 24px}h2{font-size:28px;margin-top:55px;padding-top:24px;border-top:1px solid #d9dfd5}h3{font-size:23px;margin-top:30px}.eyebrow{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}p,ul,ol{max-width:720px}li{margin-bottom:8px}code{font-size:.82em;background:#e8ece4;padding:2px 5px;overflow-wrap:anywhere}blockquote{border-left:3px solid #bb8b40;margin-left:0;padding-left:20px;color:var(--muted)}footer{background:var(--ink);color:#e8ece4;padding:32px 0;font-size:14px}footer a{color:#dce8cf}footer p{margin:4px 0}hr{border:0;border-top:1px solid #d9dfd5;margin:40px 0}@media(max-width:520px){.wrap{padding:0 20px}header .wrap{min-height:80px}nav a{margin-left:12px}main{padding-top:44px;padding-bottom:60px}h2{margin-top:40px}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><a class="brand" href="/">Hines Keep</a><nav aria-label="Main navigation"><a href="/">Studio</a><a href="/tidetrail/support/">Support</a></nav></div></header>
+  <main class="wrap">{{ content }}</main>
+  <footer><div class="wrap"><p>Hines Keep · Games by Austin Hines</p><p><a href="mailto:support@hineskeep.com">support@hineskeep.com</a></p><p>© {{ 'now' | date: '%Y' }} Austin Hines</p></div></footer>
+</body>
+</html>
