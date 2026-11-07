@@ -1,14 +1,20 @@
 # Hines Keep website
 
-Official studio website for Hines Keep, by Austin Hines.
+The studio website for Hines Keep (Austin Hines), published by GitHub Pages from `main` at https://hineskeep.com.
 
-Published by GitHub Pages from main, repository root. Custom domain: hineskeep.com.
+| Path | Page |
+|---|---|
+| `/` | Studio home with the Tide Trail card |
+| `/tidetrail/` | Tide Trail game page |
+| `/tidetrail/privacy/` | Privacy policy, true for the current pre-release build. Update it before ads, analytics, purchases or reminders ship |
+| `/tidetrail/support/` | Support and FAQ |
+| `/app-ads.txt` | Placeholder (comments only) until the ad network is picked |
 
-- /: studio home
-- /tidetrail/support/: prelaunch support and planned release FAQ
-- /app-ads.txt: comment-only placeholder; replace with exact seller lines from the chosen ad platforms
-- The privacy policy is being kept private until release SDKs and actual data practices are confirmed.
+No cookies, analytics, ads or third-party scripts. Fonts are self-hosted (Fredoka, SIL OFL).
 
-Before release: finalize the privacy policy, add tidetrail/privacy/index.md and remove the tidetrail/privacy exclusion, update the effective date, verify support instructions against the shipping build, and add the policy link to the navigation.
+## Images
+`_tools/build_assets.py` rebuilds `assets/`, the favicons and the Open Graph images from a GameStudio clone:
 
-The site includes no analytics, ads, external fonts, or JavaScript.
+    py -3 _tools/build_assets.py --studio C:/dev/GameStudio
+
+Never publish anything from `_ArtDevelopment/References/`, any `*gate_board*` image or concepts marked internal. Add the App Store badge only once the app is live.

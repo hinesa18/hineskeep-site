@@ -3,20 +3,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ site.description | escape }}">
-  <meta name="theme-color" content="#182723">
-  <title>{{ page.title | escape }}{% unless page.title == site.title %} | {{ site.title | escape }}{% endunless %}</title>
+  {%- assign desc = page.description | default: site.description -%}
+  {%- assign img = page.image | default: "/assets/img/og-hineskeep.png" -%}
+  {%- if page.title == site.title -%}{%- assign full_title = site.title -%}{%- else -%}{%- capture full_title -%}{{ page.title }} | {{ site.title }}{%- endcapture -%}{%- endif %}
+  <title>{{ full_title | escape }}</title>
+  <meta name="description" content="{{ desc | escape }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ page.og_title | default: full_title | escape }}">
+  <meta property="og:description" content="{{ desc | escape }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+  <meta property="og:image" content="{{ site.url }}{{ img }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ page.image_alt | default: 'Hines Keep: calm, friendly games for your phone' | escape }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#fbf1e4">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/fredoka-700.woff2" as="font" type="font/woff2" crossorigin>
   <style>
-    :root{color-scheme:light;--ink:#182723;--paper:#f5f2e9;--accent:#315b4c;--muted:#52635a}
-    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    .wrap{max-width:900px;margin:0 auto;padding:0 28px}header{border-bottom:1px solid #d9dfd5}header .wrap{display:flex;gap:24px;align-items:center;justify-content:space-between;min-height:94px}
-    .brand{font-weight:750;letter-spacing:-.05em;font-size:23px;text-decoration:none;color:var(--ink)}nav a{font-size:14px;margin-left:20px}a{color:var(--accent);text-underline-offset:4px}a:hover{color:#17382b}a:focus-visible{outline:3px solid #bb8b40;outline-offset:4px}
-    main{padding-top:70px;padding-bottom:90px;min-height:65vh}h1,h2,h3{line-height:1.15;letter-spacing:-.035em}h1{font-size:clamp(36px,8vw,72px);font-weight:700;margin:12px 0 24px}h2{font-size:28px;margin-top:55px;padding-top:24px;border-top:1px solid #d9dfd5}h3{font-size:23px;margin-top:30px}.eyebrow{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}p,ul,ol{max-width:720px}li{margin-bottom:8px}code{font-size:.82em;background:#e8ece4;padding:2px 5px;overflow-wrap:anywhere}blockquote{border-left:3px solid #bb8b40;margin-left:0;padding-left:20px;color:var(--muted)}footer{background:var(--ink);color:#e8ece4;padding:32px 0;font-size:14px}footer a{color:#dce8cf}footer p{margin:4px 0}hr{border:0;border-top:1px solid #d9dfd5;margin:40px 0}@media(max-width:520px){.wrap{padding:0 20px}header .wrap{min-height:80px}nav a{margin-left:12px}main{padding-top:44px;padding-bottom:60px}h2{margin-top:40px}}
+    @font-face{font-family:Fredoka;src:url(/assets/fonts/fredoka-600.woff2) format("woff2");font-weight:600;font-display:swap}
+    @font-face{font-family:Fredoka;src:url(/assets/fonts/fredoka-700.woff2) format("woff2");font-weight:700;font-display:swap}
+    :root{color-scheme:light;--sand:#fbf1e4;--card:#fffaf3;--ink:#17333b;--muted:#3f5a61;--deep:#0b4f5c;--teal:#16b3c6;--line:#ecdcc4;--sun:#ffc93c}
+    *{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{margin:0;background:var(--sand) url(/assets/img/pattern-shells.png) 0 0/320px repeat;color:var(--ink);font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+    h1,h2,h3,.brand,.pill,.btn{font-family:Fredoka,ui-rounded,-apple-system,"Segoe UI",sans-serif;font-weight:700;letter-spacing:-.01em}
+    h1{font-size:clamp(2.3rem,8vw,3.6rem);line-height:1.08;margin:.2em 0 .35em}
+    h2{font-size:clamp(1.6rem,5vw,2.1rem);line-height:1.15;margin:2.2em 0 .5em}
+    h3{font-size:1.3rem;line-height:1.2;margin:1.6em 0 .3em}
+    p,li{max-width:40em}
+    a{color:var(--deep);text-underline-offset:3px;text-decoration-thickness:2px}
+    a:hover{color:var(--ink)}
+    :focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:6px}
+    .skip{position:absolute;left:-9999px;top:8px;background:#fff;padding:8px 14px;border-radius:8px;z-index:9}
+    .skip:focus{left:16px}
+    .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+    header{background:rgba(251,241,228,.92);border-bottom:2px solid var(--line)}
+    header .wrap{display:flex;flex-wrap:wrap;gap:4px 20px;align-items:center;justify-content:space-between;min-height:68px;padding-top:8px;padding-bottom:8px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:1.45rem;color:var(--ink);text-decoration:none}
+    .brand img{width:34px;height:34px}
+    nav ul{display:flex;flex-wrap:wrap;gap:4px 18px;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;text-decoration:none;padding:10px 2px;display:inline-block}
+    nav a[aria-current=page]{text-decoration:underline}
+    main{padding:28px 0 64px;min-height:60vh}
+    .card{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 6px 0 var(--line)}
+    .pill{display:inline-block;background:var(--deep);color:#fff;border-radius:999px;padding:6px 16px;font-size:1rem;font-weight:600}
+    .btn{display:inline-block;background:var(--deep);color:#fff;text-decoration:none;border-radius:999px;padding:12px 24px;font-size:1.1rem;font-weight:600}
+    .btn:hover{background:var(--ink);color:#fff}
+    .lead{font-size:1.2rem;color:var(--muted)}
+    .eyebrow{font-family:Fredoka,sans-serif;font-weight:600;color:var(--deep);text-transform:uppercase;letter-spacing:.12em;font-size:.85rem;margin:0}
+    .phone{display:block;width:100%;max-width:270px;height:auto;aspect-ratio:540/1170;border-radius:30px;border:6px solid #fff;box-shadow:0 10px 24px rgba(23,51,59,.18);background:var(--sand)}
+    .doc{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:8px 24px 24px}
+    .doc h2{font-size:1.45rem;margin-top:1.6em}
+    footer{background:var(--ink);color:#f2f6f5;padding:28px 0 36px;font-size:.95rem}
+    footer a{color:#fff}
+    footer p{margin:.3em 0}
+    footer ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 20px;padding:0;margin:.8em 0}
+    @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+    {{ page.css }}
   </style>
 </head>
 <body>
-  <header><div class="wrap"><a class="brand" href="/">Hines Keep</a><nav aria-label="Main navigation"><a href="/">Studio</a><a href="/tidetrail/support/">Support</a></nav></div></header>
-  <main class="wrap">{{ content }}</main>
-  <footer><div class="wrap"><p>Hines Keep · Games by Austin Hines</p><p><a href="mailto:support@hineskeep.com">support@hineskeep.com</a></p><p>© {{ 'now' | date: '%Y' }} Austin Hines</p></div></footer>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="/"><img src="/favicon.svg" alt="" width="34" height="34">Hines Keep</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="/tidetrail/"{% if page.nav == "tidetrail" %} aria-current="page"{% endif %}>Tide Trail</a></li>
+          <li><a href="/tidetrail/support/"{% if page.nav == "support" %} aria-current="page"{% endif %}>Support</a></li>
+          <li><a href="/tidetrail/privacy/"{% if page.nav == "privacy" %} aria-current="page"{% endif %}>Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+{{ content }}
+  </main>
+  <footer>
+    <div class="wrap">
+      <p><strong>Hines Keep</strong> · Games by Austin Hines, Michigan, USA</p>
+      <p>Questions? <a href="mailto:support@hineskeep.com">support@hineskeep.com</a></p>
+      <ul>
+        <li><a href="/tidetrail/">Tide Trail</a></li>
+        <li><a href="/tidetrail/support/">Tide Trail support</a></li>
+        <li><a href="/tidetrail/privacy/">Tide Trail privacy policy</a></li>
+      </ul>
+      <p>© {{ site.time | date: '%Y' }} Austin Hines. Fredoka font under the <a href="/assets/fonts/Fredoka-OFL.txt">SIL Open Font License</a>.</p>
+    </div>
+  </footer>
 </body>
 </html>

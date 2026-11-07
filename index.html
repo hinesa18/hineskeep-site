@@ -1,0 +1,40 @@
+---
+layout: default
+title: Hines Keep
+description: Hines Keep is an independent mobile game studio in Michigan making calm, friendly games for your phone. First up, Tide Trail, coming soon to iPhone.
+image: /assets/img/og-hineskeep.png
+image_alt: "Hines Keep: calm, friendly games for your phone, made with care in Michigan, with Pebble the otter"
+css: >-
+  .hero{padding:24px 0 8px}
+  .game{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;margin-top:28px}
+  .game .logo{width:min(300px,80%);height:auto;display:block;margin:0 0 4px -6px}
+  .game .shots{display:flex;gap:14px;justify-content:center;align-items:flex-end}
+  .game .shots .phone{max-width:200px}
+  .game .otter{width:120px;height:auto;margin-left:-40px;margin-bottom:-8px}
+  .contact{margin-top:40px}
+  @media (min-width:760px){.game{grid-template-columns:1.1fr .9fr;padding:32px}}
+---
+
+<section class="hero" aria-labelledby="studio">
+  <p class="eyebrow">Independent game studio</p>
+  <h1 id="studio">Hines Keep</h1>
+  <p class="lead">Calm, friendly games for your phone, made with care in Michigan.</p>
+</section>
+
+<section class="card game" aria-labelledby="tidetrail">
+  <div>
+    <h2 id="tidetrail" style="margin:0"><img class="logo" src="/assets/img/tide-trail-logo.png" alt="Tide Trail" width="640" height="375"></h2>
+    <p><span class="pill">Coming soon to iPhone</span></p>
+    <p>A calm tide-pool puzzle. Draw one line through every square, passing the numbered shells in order. Your stream washes the pool clean, and Pebble the otter swims your route.</p>
+    <p><a class="btn" href="/tidetrail/">See Tide Trail</a></p>
+  </div>
+  <div class="shots">
+    <img class="phone" src="/assets/img/shot-finish.jpg" width="540" height="1170" alt="Tide Trail on iPhone: a solved tide pool of clear water, the Splash! ribbon above it and Pebble the otter at the end of the line." loading="lazy">
+    <img class="otter" src="/assets/img/pebble-cheer.png" width="360" height="360" alt="" loading="lazy">
+  </div>
+</section>
+
+<section class="contact" aria-labelledby="contact">
+  <h2 id="contact">Say hello</h2>
+  <p>Questions, ideas or a bug to report? Email <a href="mailto:support@hineskeep.com">support@hineskeep.com</a>. A real person reads every message.</p>
+</section>

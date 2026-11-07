@@ -1,0 +1,85 @@
+---
+layout: default
+title: Tide Trail
+nav: tidetrail
+description: "Tide Trail is a calm tide-pool puzzle for iPhone: draw one line through every square, wash the pool clean and watch Pebble the otter swim your route. Coming soon."
+image: /assets/img/og-tidetrail.png
+image_alt: "Tide Trail: draw one line, clean the pool, watch Pebble swim. Coming soon to iPhone."
+css: >-
+  .tt-hero{display:grid;gap:20px;align-items:center;padding:16px 0 8px}
+  .tt-hero .logo{width:min(420px,90%);height:auto;display:block;margin-left:-8px}
+  .tt-hero .art{display:flex;justify-content:center;align-items:flex-end}
+  .tt-hero .otter{width:130px;height:auto;margin-left:-50px;margin-bottom:-6px}
+  .hooks{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:28px}
+  .hook{display:grid;gap:18px;align-items:center}
+  .hook figure{margin:0;display:flex;justify-content:center}
+  .hook .n{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--sun);color:var(--ink);font-family:Fredoka,sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:6px}
+  .hook h2{margin:.1em 0 .3em}
+  .facts{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));list-style:none;padding:0;margin:20px 0 0}
+  .facts li{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:14px 18px;max-width:none}
+  .facts strong{font-family:Fredoka,sans-serif;font-size:1.15rem;display:block}
+  @media (min-width:760px){
+  .tt-hero{grid-template-columns:1.2fr .8fr}
+  .hook{grid-template-columns:1fr 300px;padding:28px 36px}
+  .hook:nth-child(even){grid-template-columns:300px 1fr}
+  .hook:nth-child(even) figure{order:-1}}
+---
+
+<section class="tt-hero" aria-labelledby="tt">
+  <div>
+    <h1 id="tt"><img class="logo" src="/assets/img/tide-trail-logo.png" width="640" height="375" alt="Tide Trail"></h1>
+    <p class="lead">A calm tide-pool puzzle for iPhone. Draw one line, clean the pool, and watch Pebble swim.</p>
+    <p><span class="pill">Coming soon to iPhone</span></p>
+  </div>
+  <div class="art">
+    <img class="phone" src="/assets/img/shot-finish.jpg" width="540" height="1170" alt="A solved level: every square of the tide pool is clear turquoise water, the Splash! ribbon shows above the board and Pebble pops out at the last shell." fetchpriority="high">
+    <img class="otter" src="/assets/img/pebble-cheer.png" width="360" height="360" alt="">
+  </div>
+</section>
+
+<ol class="hooks">
+  <li class="card hook">
+    <div>
+      <span class="n" aria-hidden="true">1</span>
+      <h2>Draw one line through every square</h2>
+      <p>Start on shell 1 and drag up, down, left or right. Pass the numbered shells in order and fill every square of the pool. The rule fits in one look; finding the route is the fun.</p>
+      <p>Changed your mind? Drag back along your line as far as you like. There's no penalty for a wrong move.</p>
+    </div>
+    <figure><img class="phone" src="/assets/img/shot-draw.jpg" width="540" height="1170" alt="Level 1: a 3 by 3 tide pool with shells 1 to 4, a paw showing how to draw, and the hint 'Draw one line through every square'." loading="lazy"></figure>
+  </li>
+  <li class="card hook">
+    <div>
+      <span class="n" aria-hidden="true">2</span>
+      <h2>The stream cleans the pool</h2>
+      <p>Bottle caps, cans and scraps of net litter the sand. As your turquoise stream passes, each square turns to clear, sparkling water and the litter pops away in a bubble.</p>
+    </div>
+    <figure><img class="phone" src="/assets/img/shot-clean.jpg" width="540" height="1170" alt="A half-drawn level: the squares the line has crossed are clear water, the rest are sand with bits of litter still on them." loading="lazy"></figure>
+  </li>
+  <li class="card hook">
+    <div>
+      <span class="n" aria-hidden="true">3</span>
+      <h2>Pebble swims your route</h2>
+      <p>Solve the pool and Pebble the otter dives in and swims your exact path, bouncing every shell, then leaps out with a splash as fish return to the clean water. Tap to hurry Pebble along.</p>
+    </div>
+    <figure><img class="phone" src="/assets/img/shot-swim.jpg" width="540" height="1170" alt="Pebble the otter swimming along the finished line through a clean tide pool, trailing bubbles." loading="lazy"></figure>
+  </li>
+  <li class="card hook">
+    <div>
+      <span class="n" aria-hidden="true">4</span>
+      <h2>Currents from level 21</h2>
+      <p>Blue arrow squares are ocean currents: your line may only cross them the way the arrow points. Together with coral reef walls, they turn bigger pools into real brain teasers.</p>
+    </div>
+    <figure><img class="phone" src="/assets/img/shot-currents.jpg" width="540" height="1170" alt="Level 21: a 6 by 6 tide pool with seven shells, pink reef walls and two blue current arrows, and the hint 'Follow the arrows: cross a current the way it flows'." loading="lazy"></figure>
+  </li>
+</ol>
+
+<h2>Calm, with a little challenge</h2>
+<ul class="facts">
+  <li><strong>1,000 levels</strong>Each one checked by a solver to have exactly one solution.</li>
+  <li><strong>Play at your pace</strong>Normal levels have no timer and can't be lost.</li>
+  <li><strong>Beat the tide</strong>Hard levels add a race against the rising tide. Out of time? Just try again.</li>
+  <li><strong>Plays offline</strong>No account, no sign-in. Your progress stays on your iPhone.</li>
+</ul>
+
+<h2>Coming soon</h2>
+<p>Tide Trail is in development for iPhone. Questions or ideas? Email <a href="mailto:support@hineskeep.com">support@hineskeep.com</a>, or visit <a href="/tidetrail/support/">Tide Trail support</a>. Read how the game handles your data in the <a href="/tidetrail/privacy/">privacy policy</a>.</p>

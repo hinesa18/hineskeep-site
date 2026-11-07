@@ -1,8 +1,8 @@
 title: Hines Keep
-description: Independent mobile games by Austin Hines.
+description: Hines Keep is an independent mobile game studio in Michigan making calm, friendly games for your phone.
 url: "https://hineskeep.com"
 baseurl: ""
 markdown: kramdown
 exclude:
   - README.md
-  - tidetrail/privacy
+  - _tools
