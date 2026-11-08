@@ -13,7 +13,7 @@ css: >-
 
 <article class="doc" aria-labelledby="pp">
 <h1 id="pp">Tide Trail privacy policy</h1>
-<p><strong>Last updated: November 8, 2026.</strong> This policy covers Tide Trail 1.0 for iPhone, the version on TestFlight and the one going to the App Store, made by Hines Keep (Austin Hines, an independent developer in Michigan, USA). It also covers this website. The November 7 version described a test build with no ads, analytics or purchases; this one describes the real game.</p>
+<p><strong>Last updated: November 8, 2026.</strong> This policy covers Tide Trail 1.0 for iPhone, the version on TestFlight and the one going to the App Store, made by Hines Keep (Austin Hines, an independent developer in Michigan, USA). It also covers this website. The November 7 version described a test build with no ads, analytics or purchases; this one describes the real game, and was updated the same evening for the build now on TestFlight, in which the Unity engine's own reports and Firebase's use of the advertising identifier are switched off.</p>
 
 <h2>The short version</h2>
 <ul>
@@ -67,7 +67,7 @@ css: >-
 
 <h2>Analytics and settings (Google Firebase)</h2>
 <p>We need to know whether the game works and whether people keep playing, so Tide Trail uses two Google Firebase services.</p>
-<p><strong>Firebase Analytics</strong> records what happens in the game as events: a level started or finished and how long it took, a hint or freeze used, the tide running out, a daily puzzle finished and the streak, a new critter, a reward video requested or finished, an ad shown between levels, a purchase and which product, and a setting switched. Firebase adds its own: the app opened, a session started, the app updated, the app version, the iPhone model and iOS version, the language, and your country and region, worked out from your IP address (Google doesn't keep the full address in our reports). Each install gets a random identifier so that Firebase can tell installs apart; if you allow tracking, Google's software may also read the advertising identifier. We look at this data as totals: how many players reach each level, how long they play, how many come back the next day. We don't see individual players and have no way to look one up.</p>
+<p><strong>Firebase Analytics</strong> records what happens in the game as events: a level started or finished and how long it took, a hint or freeze used, the tide running out, a daily puzzle finished and the streak, a new critter, a reward video requested or finished, an ad shown between levels, a purchase and which product, and a setting switched. Firebase adds its own: the app opened, a session started, the app updated, the app version, the iPhone model and iOS version, the language, and your country and region, worked out from your IP address (Google doesn't keep the full address in our reports). Each install gets a random identifier so that Firebase can tell installs apart. We have switched off Firebase's reading of the advertising identifier, so Google never gets it from Tide Trail, whatever you answer to the tracking question. We look at this data as totals: how many players reach each level, how long they play, how many come back the next day. We don't see individual players and have no way to look one up.</p>
 <p><strong>Firebase Remote Config</strong> is how the game fetches its tuning numbers from us when it starts (for example how many coins a level pays or how often ads may appear), so we can adjust them without a new version. That request carries the same random install identifier and basic device details, nothing more.</p>
 <p>Google's <a href="https://policies.google.com/privacy">privacy policy</a> and its page on <a href="https://firebase.google.com/support/privacy">privacy and security in Firebase</a> describe how Google handles this data.</p>
 
@@ -81,7 +81,7 @@ css: >-
 <p>Once, after you win a level from level 15 on, Tide Trail asks iOS to show Apple's standard "Enjoying Tide Trail?" rating prompt. iOS decides whether it appears. Any star rating or review you leave goes to Apple under Apple's privacy policy. The game never sees it.</p>
 
 <h2>The Unity engine</h2>
-<p>Tide Trail is built with the Unity game engine. Unity's own online services (Unity Analytics, Unity Ads as an ad network, Unity's cloud diagnostics) are switched off. The engine itself can send Unity anonymous technical reports about crashes, device performance and the hardware it runs on; they aren't linked to you and we don't see them per player. Unity's <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">player privacy policy</a> covers this.</p>
+<p>Tide Trail is built with the Unity game engine. Unity's own online services (Unity Analytics, Unity Ads as an ad network, Unity's cloud diagnostics) are switched off, and so are the engine's built-in reports about crashes and about the hardware it runs on. Apart from the ad service described above (Unity LevelPlay is also Unity's), your copy of the game sends Unity nothing. If that ever changes, Unity's <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">player privacy policy</a> would apply and we would say so here first.</p>
 
 <h2>In the App Store's words</h2>
 <p>The App Store shows a privacy summary for every app. This is what Tide Trail's says, and why. "Linked" is Apple's word for data tied to an identifier such as your device's; there's no account to link anything to.</p>
@@ -93,7 +93,7 @@ css: >-
   <tr><td>Purchase history (which products you bought)</td><td>Firebase, from Apple's receipt</td><td>Yes</td><td>No</td></tr>
   <tr><td>Product interaction (levels played, buttons tapped)</td><td>Firebase, LevelPlay</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
   <tr><td>Advertising data (ads shown, watched, tapped)</td><td>LevelPlay, Firebase</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
-  <tr><td>Crash, performance and other diagnostic data</td><td>Unity, LevelPlay, Firebase</td><td>No</td><td>No</td></tr>
+  <tr><td>Crash, performance and other diagnostic data (this version sends no crash reports; the ad and analytics software measure how they themselves ran)</td><td>LevelPlay, Firebase</td><td>No</td><td>No</td></tr>
 </table>
 </div>
 
