@@ -4,6 +4,8 @@ WHAT IT DOES
   Makes everything under assets/ plus the favicons and the Open Graph images:
   - Fredoka (OFL) subset to Latin and saved as WOFF2, with its licence;
   - Codex's Tide Trail logo, Pebble the otter and the shells pattern, resized;
+  - the Tide Trail app icon (Codex's waving otter, the icon in the build) at 360 px
+    for the game page, which rounds its corners in CSS;
   - phone screenshots from the game's real play-test captures;
   - favicon.svg / favicon.ico / apple-touch-icon.png (a simple keep tower:
     the studio logo is still being designed);
@@ -11,7 +13,9 @@ WHAT IT DOES
 
 HOW TO RUN
   py -3 _tools/build_assets.py --studio C:/dev/GameStudio
-  Needs Pillow, fonttools and brotli. The GameStudio clone needs the LFS files
+  python3 _tools/build_assets.py --studio ~/Developer/GameStudio-web-store --only icon,og
+  Needs Pillow, plus fonttools and brotli for the font step (--only skips what
+  isn't named: fonts, art, icon, favicons, og). The GameStudio clone needs the LFS files
   for Status/img/2026-11-07_session-17_* and _ArtDevelopment/TideTrail/.
 
 STUDIO RULES
@@ -24,7 +28,6 @@ import shutil
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
-from fontTools import subset
 
 SITE = Path(__file__).resolve().parent.parent
 SAND = (251, 241, 228)
@@ -45,6 +48,7 @@ SHOTS = {
 
 def fonts(art: Path, out: Path):
     """Subsets Fredoka SemiBold and Bold to Basic Latin plus a few marks, as WOFF2."""
+    from fontTools import subset
     out.mkdir(parents=True, exist_ok=True)
     text = "".join(chr(c) for c in range(0x20, 0x7F)) + "\u00a0\u00a9\u00b7\u2013\u2014\u2018\u2019\u201c\u201d\u2026\u2192\u00e9"
     for weight, name in (("600", "fredoka_semibold.ttf"), ("700", "fredoka_bold.ttf")):
@@ -80,6 +84,12 @@ def art_images(studio: Path, art: Path, out: Path):
         im = Image.open(src).convert("RGB")
         im.resize((540, round(im.height * 540 / im.width)), Image.LANCZOS).save(
             out / f"{name}.jpg", quality=84, optimize=True, progressive=True)
+
+
+def app_icon(art: Path, out: Path):
+    """The App Store icon as built (1024 px, square), at 360 px; the page rounds it."""
+    out.mkdir(parents=True, exist_ok=True)
+    fit(art / "icon/app_icon_1024.png", 360).convert("RGB").save(out / "app-icon.png", optimize=True)
 
 
 def tower(size: int) -> Image.Image:
@@ -156,8 +166,10 @@ def og_images(studio: Path, art: Path):
     d.text((70, 380), "Draw one line. Clean the pool.", font=ImageFont.truetype(semi, 40), fill=INK)
     d.text((70, 432), "Watch Pebble swim.", font=ImageFont.truetype(semi, 40), fill=INK)
     pill = ImageFont.truetype(bold, 30)
-    d.rounded_rectangle((70, 512, 474, 568), radius=28, fill=DEEP)
-    d.text((272, 540), "Coming soon to iPhone", font=pill, fill=(255, 255, 255), anchor="mm")
+    label = "December 2026 on iPhone"
+    tw = d.textbbox((0, 0), label, font=pill)[2]
+    d.rounded_rectangle((70, 512, 70 + tw + 64, 568), radius=28, fill=DEEP)
+    d.text((70 + 32 + tw // 2, 540), label, font=pill, fill=(255, 255, 255), anchor="mm")
     p = phone(img / SHOTS["shot-finish"], 560)
     og.alpha_composite(p, (1200 - p.width - 60, (630 - p.height) // 2))
     otter = fit(art / "critters/otter/otter_cheer.png", 200)
@@ -180,13 +192,23 @@ def og_images(studio: Path, art: Path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--studio", required=True, help="path to the GameStudio clone")
-    studio = Path(ap.parse_args().studio)
+    ap.add_argument("--only", default="fonts,art,icon,favicons,og",
+                    help="comma-separated steps to run (default: all)")
+    args = ap.parse_args()
+    studio = Path(args.studio)
     art = studio / "_ArtDevelopment/TideTrail"
-    fonts(art, SITE / "assets/fonts")
-    art_images(studio, art, SITE / "assets/img")
-    favicons()
-    og_images(studio, art)
-    print("done")
+    steps = {x.strip() for x in args.only.split(",")}
+    if "fonts" in steps:
+        fonts(art, SITE / "assets/fonts")
+    if "art" in steps:
+        art_images(studio, art, SITE / "assets/img")
+    if "icon" in steps:
+        app_icon(art, SITE / "assets/img")
+    if "favicons" in steps:
+        favicons()
+    if "og" in steps:
+        og_images(studio, art)
+    print("done:", ", ".join(sorted(steps)))
 
 
 if __name__ == "__main__":

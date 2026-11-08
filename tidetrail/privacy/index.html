@@ -2,56 +2,123 @@
 layout: default
 title: Tide Trail Privacy Policy
 nav: privacy
-description: How Tide Trail by Hines Keep handles your data. The current version collects no personal data, shows no ads and keeps your progress only on your iPhone.
+description: How Tide Trail by Hines Keep handles your data, in plain words. Your progress stays on your iPhone; ads, analytics and purchases use the services named here.
 image: /assets/img/og-tidetrail.png
+css: >-
+  .doc table{border-collapse:collapse;width:100%;font-size:.95rem;margin:12px 0 4px}
+  .doc th,.doc td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
+  .doc th{font-family:Fredoka,sans-serif;font-weight:600;color:var(--deep)}
+  .doc .tbl{overflow-x:auto}
 ---
 
 <article class="doc" aria-labelledby="pp">
 <h1 id="pp">Tide Trail privacy policy</h1>
-<p><strong>Last updated: November 7, 2026.</strong> This policy covers the current pre-release version of Tide Trail for iPhone, made by Hines Keep (Austin Hines, an independent developer in Michigan, USA). It also covers this website.</p>
+<p><strong>Last updated: November 8, 2026.</strong> This policy covers Tide Trail 1.0 for iPhone, the version on TestFlight and the one going to the App Store, made by Hines Keep (Austin Hines, an independent developer in Michigan, USA). It also covers this website. The November 7 version described a test build with no ads, analytics or purchases; this one describes the real game.</p>
 
 <h2>The short version</h2>
 <ul>
-  <li>Tide Trail does not collect personal data. Hines Keep receives nothing about you or your device from the game.</li>
-  <li>There are no ads, no analytics, no tracking and no in-app purchases in this version.</li>
-  <li>Your progress is saved in one file on your iPhone and never leaves it, except in your own iPhone backups.</li>
-  <li>The game works offline. You don't need an account.</li>
+  <li>Tide Trail has no account and never asks for your name, email address or anything else about you.</li>
+  <li>Your progress is saved in one file on your iPhone. It never leaves your phone, except in your own iPhone backups.</li>
+  <li>The game shows ads through Unity LevelPlay (ironSource Ads). The ad software collects technical details about your iPhone and, only if you allow tracking, its advertising identifier. Buying Remove Ads or the Starter Pack ends the ads between levels.</li>
+  <li>Google's Firebase measures how the game is played (which levels, how long, which buttons) and sends the game its tuning numbers. To us the data is totals, not people.</li>
+  <li>Purchases go through Apple's App Store. We never see your card or your Apple ID.</li>
+  <li>The game asks once whether it may track you (Apple's standard question). Saying no changes nothing in the game.</li>
+  <li>The daily reminder is optional and is scheduled on your iPhone, not sent from a server.</li>
+  <li>Hines Keep doesn't sell your data and can't identify you. The ad service does receive device data to show ads, which some US state laws call "sharing"; you stop that by not allowing tracking.</li>
 </ul>
 
 <h2>What the game stores on your iPhone</h2>
-<p>Tide Trail keeps one save file inside the app's private storage on your iPhone. It holds:</p>
+<p>Tide Trail keeps one save file inside the app's private storage. It holds:</p>
 <ul>
-  <li>your progress: the next level, how many levels you have finished, and how many of them were Hard;</li>
+  <li>your progress: the next level, how many levels you have finished and how many of them were Hard;</li>
   <li>your coins, hints and freezes, and whether you've received the free hint and freeze gifts;</li>
-  <li>which sea critters you have unlocked and which one swims your wins;</li>
-  <li>daily puzzle streak counters (for a feature that isn't in the game yet);</li>
-  <li>your sound, music and vibration settings;</li>
-  <li>on/off flags for future purchases (always off in this version, because nothing is for sale);</li>
-  <li>the time of your first launch and of the last save, how many times you've opened the game, and the level at which the game asked iOS to show the rating prompt.</li>
+  <li>which sea critters have joined your album and which one swims your wins;</li>
+  <li>your Daily Tide streak: the current and best streak, the last day you finished the daily puzzle and the last time you saved a streak;</li>
+  <li>whether you own Remove Ads and the Starter Pack;</li>
+  <li>your sound, music, vibration and daily reminder settings;</li>
+  <li>the time of your first launch and of the last save, how many times you've opened the game, the level at which the game asked iOS to show the rating prompt, and how many times it offered the reminder.</li>
 </ul>
-<p>None of this identifies you. The file isn't sent to us or to anyone else. Deleting the app deletes it. If you back up your iPhone to iCloud or a computer, iOS may include the file in that backup, which belongs to you and which we can't access.</p>
+<p>None of this identifies you, and the file isn't sent to us or to anyone else. Deleting the app deletes it. If you back up your iPhone to iCloud or a computer, iOS may include the file in that backup, which belongs to you and which we can't access.</p>
 
-<h2>No network, no ads, no analytics</h2>
-<p>The current version of Tide Trail doesn't contain any advertising, analytics, crash-reporting or in-app purchase software, and its own code doesn't connect to the internet. The "test ad" card you may see in a test build is a placeholder inside the game, and no ad is loaded from anywhere.</p>
-<p>Tide Trail is made with the Unity game engine. We haven't turned on any of Unity's online services (such as Unity Analytics, Unity Ads or Unity's crash reporting), and we receive no data from Unity about you. Unity describes the technical information its software can handle in its <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">player privacy policy</a>.</p>
+<h2>Ads (Unity LevelPlay, ironSource Ads)</h2>
+<p>Tide Trail is free because it shows ads. There are two kinds:</p>
+<ul>
+  <li><strong>Short ads between levels</strong>, from level 12 on, after some wins and never in the middle of a puzzle. Buying <strong>Remove Ads</strong> or the <strong>Starter Pack</strong> switches them off for good.</li>
+  <li><strong>Reward videos you choose:</strong> triple coins after a win, a free hint, more time when the tide goes out, or saving a Daily Tide streak. They play only when you tap the button, and they stay available after Remove Ads.</li>
+</ul>
+<p>The ads come through <strong>Unity LevelPlay</strong>, the ad service of Unity Technologies (it includes ironSource Ads; the two names mean the same service). For now ironSource Ads is the only ad network connected. If we connect more networks, such as Unity Ads or Google AdMob, we'll name them here first.</p>
+<p>To choose, show and measure ads, LevelPlay's software collects from your iPhone:</p>
+<ul>
+  <li>a device identifier: the advertising identifier (IDFA) <em>only</em> if you allow tracking, and Apple's vendor identifier (IDFV), which is specific to Hines Keep's apps on your phone;</li>
+  <li>your IP address, from which it works out your country and region (it also uses it to detect fraud);</li>
+  <li>device details: model, iOS version, language, screen size, free memory and storage, battery, network type and carrier;</li>
+  <li>what happened with each ad: loaded, shown, watched to the end, tapped;</li>
+  <li>the app's name and version.</li>
+</ul>
+<p>LevelPlay uses this to serve ads, pay us for them, stop fraud and, when you've allowed tracking, show ads chosen for you and measure which ads led to app installs. Hines Keep sees only totals in LevelPlay's reports (how many ads were shown and what they earned), never a person. Unity's <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">privacy policy for game players</a> explains its handling in full and how to opt out of personalized ads.</p>
+
+<h2>Apple's tracking question</h2>
+<p>The first time you reach the home screen (after level 6), before any ad is loaded, iOS shows Apple's standard question: may Tide Trail track your activity across other companies' apps and websites? Our reason, shown under it, reads: "Your permission helps keep Tide Trail free to play by showing more relevant ads instead of random ones. You can change this anytime in iOS Settings."</p>
+<ul>
+  <li><strong>Allow</strong> lets the ad service read your advertising identifier and use it to pick ads for you and to measure ad campaigns across apps. That is what Apple calls tracking.</li>
+  <li><strong>Ask App Not to Track</strong> means the ad service gets no advertising identifier and shows general ads instead. Nothing else changes: every level, critter and daily puzzle stays the same.</li>
+</ul>
+<p>Change your answer any time under Settings → Privacy &amp; Security → Tracking → Tide Trail. If "Allow Apps to Request to Track" is switched off on your iPhone, the question never appears and the answer counts as no. The game asks only once.</p>
+
+<h2>Analytics and settings (Google Firebase)</h2>
+<p>We need to know whether the game works and whether people keep playing, so Tide Trail uses two Google Firebase services.</p>
+<p><strong>Firebase Analytics</strong> records what happens in the game as events: a level started or finished and how long it took, a hint or freeze used, the tide running out, a daily puzzle finished and the streak, a new critter, a reward video requested or finished, an ad shown between levels, a purchase and which product, and a setting switched. Firebase adds its own: the app opened, a session started, the app updated, the app version, the iPhone model and iOS version, the language, and your country and region, worked out from your IP address (Google doesn't keep the full address in our reports). Each install gets a random identifier so that Firebase can tell installs apart; if you allow tracking, Google's software may also read the advertising identifier. We look at this data as totals: how many players reach each level, how long they play, how many come back the next day. We don't see individual players and have no way to look one up.</p>
+<p><strong>Firebase Remote Config</strong> is how the game fetches its tuning numbers from us when it starts (for example how many coins a level pays or how often ads may appear), so we can adjust them without a new version. That request carries the same random install identifier and basic device details, nothing more.</p>
+<p>Google's <a href="https://policies.google.com/privacy">privacy policy</a> and its page on <a href="https://firebase.google.com/support/privacy">privacy and security in Firebase</a> describe how Google handles this data.</p>
+
+<h2>In-app purchases (Apple's App Store)</h2>
+<p>The shop sells Remove Ads, the Starter Pack and three coin packs. Apple sells them and takes the payment: Hines Keep never receives your name, card details, billing address or Apple ID. Apple gives the game a receipt saying which product you bought or restored, and the game unlocks it on your iPhone. Unity's purchasing software (Unity IAP) carries the purchase between the game and Apple; in Tide Trail it isn't connected to Unity's own servers. Firebase Analytics records that a purchase happened, the product and its price, for our sales totals. Refunds are Apple's to give: ask at <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>. <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a> covers your purchase.</p>
+
+<h2>The daily reminder</h2>
+<p>After your first Daily Tide, the game asks whether you'd like a gentle reminder once a day. Only if you tap "Remind me" does iOS ask its own permission for notifications. The reminder is scheduled entirely on your iPhone: there's no server behind it and no push token. The game's analytics record that the switch was turned on or off, like the other settings, and nothing else. Turn it off any time with the Daily reminder switch in the game's settings (the gear on the home screen), or under Settings → Notifications → Tide Trail on your iPhone.</p>
 
 <h2>Rating prompt</h2>
-<p>Once, after you win a level from level 15 on, Tide Trail asks iOS to show Apple's standard "Enjoying Tide Trail?" rating prompt. iOS decides whether it appears. Any star rating or review you leave goes to Apple under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. The game never sees it.</p>
+<p>Once, after you win a level from level 15 on, Tide Trail asks iOS to show Apple's standard "Enjoying Tide Trail?" rating prompt. iOS decides whether it appears. Any star rating or review you leave goes to Apple under Apple's privacy policy. The game never sees it.</p>
 
-<h2>Notifications, location, camera, contacts</h2>
-<p>This version sends no notifications and doesn't use your location, camera, microphone, photos or contacts.</p>
+<h2>The Unity engine</h2>
+<p>Tide Trail is built with the Unity game engine. Unity's own online services (Unity Analytics, Unity Ads as an ad network, Unity's cloud diagnostics) are switched off. The engine itself can send Unity anonymous technical reports about crashes, device performance and the hardware it runs on; they aren't linked to you and we don't see them per player. Unity's <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">player privacy policy</a> covers this.</p>
+
+<h2>In the App Store's words</h2>
+<p>The App Store shows a privacy summary for every app. This is what Tide Trail's says, and why. "Linked" is Apple's word for data tied to an identifier such as your device's; there's no account to link anything to.</p>
+<div class="tbl">
+<table>
+  <tr><th>Data</th><th>Who collects it</th><th>Linked to you</th><th>Used for tracking</th></tr>
+  <tr><td>Coarse location (country and region, from your IP address)</td><td>LevelPlay, Firebase</td><td>Yes</td><td>No</td></tr>
+  <tr><td>Device ID (the advertising identifier if you allow tracking, the vendor identifier, Firebase's install identifier)</td><td>LevelPlay, Firebase</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
+  <tr><td>Purchase history (which products you bought)</td><td>Firebase, from Apple's receipt</td><td>Yes</td><td>No</td></tr>
+  <tr><td>Product interaction (levels played, buttons tapped)</td><td>Firebase, LevelPlay</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
+  <tr><td>Advertising data (ads shown, watched, tapped)</td><td>LevelPlay, Firebase</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
+  <tr><td>Crash, performance and other diagnostic data</td><td>Unity, LevelPlay, Firebase</td><td>No</td><td>No</td></tr>
+</table>
+</div>
+
+<h2>Location, camera, contacts</h2>
+<p>Tide Trail doesn't use your precise location, camera, microphone, photos or contacts. The only location it ever knows is the country and region that the ad and analytics services work out from your IP address, as described above.</p>
 
 <h2>Children</h2>
-<p>Tide Trail is a puzzle game for a general audience. It doesn't collect personal data from anyone, including children.</p>
+<p>Tide Trail is a puzzle game for a general audience. It isn't aimed at children under 13, and we've told the ad service so. We don't knowingly collect personal data from children. If you're a parent or guardian and believe a child has given us personal data, email us and we'll delete it.</p>
+
+<h2>Your choices</h2>
+<ul>
+  <li><strong>Tracking:</strong> answer no to Apple's question, or change it later under Settings → Privacy &amp; Security → Tracking.</li>
+  <li><strong>Ads between levels:</strong> buy Remove Ads or the Starter Pack. Reward videos are always your choice.</li>
+  <li><strong>Reminders:</strong> the switch in the game's settings, or Settings → Notifications → Tide Trail.</li>
+  <li><strong>Deleting your data:</strong> deleting the app deletes your save file. The data held by Google and Unity is tied to device identifiers we never see, so we can't find or delete it for you; their privacy policies (linked above) explain how to ask them directly. If you live somewhere with a privacy law that gives you rights over your data (the EU and the UK, California and other US states, and others), email us and we'll help as far as we can, including passing your request on to Google or Unity.</li>
+</ul>
 
 <h2>When you email us</h2>
 <p>If you write to <a href="mailto:support@hineskeep.com">support@hineskeep.com</a>, we receive your email address and whatever you choose to send. We use it only to answer you, and we never sell or share it. Mail to that address is forwarded by Cloudflare's email routing to the developer's Google Gmail inbox. To have your messages deleted, just ask at the same address.</p>
 
 <h2>This website</h2>
-<p>hineskeep.com uses no cookies, analytics, ads or third-party scripts. It's hosted on GitHub Pages, and our domain is registered with Cloudflare. Like any web host, these services handle visitors' IP addresses to deliver pages and protect against abuse. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a> and <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's privacy policy</a>.</p>
+<p>hineskeep.com uses no cookies, analytics, ads or third-party scripts. It's hosted on GitHub Pages, and our domain is registered with Cloudflare. Like any web host, these services handle visitors' IP addresses to deliver pages and protect against abuse. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a> and <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's privacy policy</a>. The file <a href="/app-ads.txt">app-ads.txt</a> on this site is a public list of the companies allowed to sell our ad space; it collects nothing.</p>
 
 <h2>Changes to this policy</h2>
-<p>Before Tide Trail adds ads, analytics, in-app purchases or reminders, we'll update this policy to explain exactly what changes, and we'll change the date at the top. The App Store listing's privacy details will be updated at the same time.</p>
+<p>Before we add a service or use data in a new way, we'll update this page and change the date at the top, and we'll update the privacy details on the App Store listing at the same time.</p>
 
 <h2>Contact</h2>
 <p>Hines Keep (Austin Hines), Michigan, USA<br>Email: <a href="mailto:support@hineskeep.com">support@hineskeep.com</a></p>

@@ -2,14 +2,16 @@
 layout: default
 title: Tide Trail
 nav: tidetrail
-description: "Tide Trail is a calm tide-pool puzzle for iPhone: draw one line through every square, wash the pool clean and watch Pebble the otter swim your route. Coming soon."
+description: "Tide Trail is a calm tide-pool puzzle for iPhone: draw one line through every square, wash the pool clean and watch Pebble the otter swim your route. Coming to iPhone in December 2026."
 image: /assets/img/og-tidetrail.png
-image_alt: "Tide Trail: draw one line, clean the pool, watch Pebble swim. Coming soon to iPhone."
+image_alt: "Tide Trail: draw one line, clean the pool, watch Pebble swim. December 2026 on iPhone."
 css: >-
   .tt-hero{display:grid;gap:20px;align-items:center;padding:16px 0 8px}
   .tt-hero .logo{width:min(420px,90%);height:auto;display:block;margin-left:-8px}
   .tt-hero .art{display:flex;justify-content:center;align-items:flex-end}
   .tt-hero .otter{width:130px;height:auto;margin-left:-50px;margin-bottom:-6px}
+  .tt-hero .meta{display:flex;align-items:center;gap:16px;margin:8px 0 0}
+  .tt-hero .icon{width:84px;height:84px;border-radius:22.5%;box-shadow:0 6px 16px rgba(23,51,59,.18);flex:none}
   .hooks{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:28px}
   .hook{display:grid;gap:18px;align-items:center}
   .hook figure{margin:0;display:flex;justify-content:center}
@@ -29,7 +31,7 @@ css: >-
   <div>
     <h1 id="tt"><img class="logo" src="/assets/img/tide-trail-logo.png" width="640" height="375" alt="Tide Trail"></h1>
     <p class="lead">A calm tide-pool puzzle for iPhone. Draw one line, clean the pool, and watch Pebble swim.</p>
-    <p><span class="pill">Coming soon to iPhone</span></p>
+    <p class="meta"><img class="icon" src="/assets/img/app-icon.png" width="180" height="180" alt="The Tide Trail app icon: Pebble the otter waving from a tide pool"><span class="pill">December 2026 on iPhone</span></p>
   </div>
   <div class="art">
     <img class="phone" src="/assets/img/shot-finish.jpg" width="540" height="1170" alt="A solved level: every square of the tide pool is clear turquoise water, the Splash! ribbon shows above the board and Pebble pops out at the last shell." fetchpriority="high">
@@ -79,7 +81,13 @@ css: >-
   <li><strong>Play at your pace</strong>Normal levels have no timer and can't be lost.</li>
   <li><strong>Beat the tide</strong>Hard levels add a race against the rising tide. Out of time? Just try again.</li>
   <li><strong>Plays offline</strong>No account, no sign-in. Your progress stays on your iPhone.</li>
+  <li><strong>12 sea critters</strong>Pebble first; new friends join your album as you play.</li>
+  <li><strong>The Daily Tide</strong>One calm, untimed puzzle a day. Keep your streak going.</li>
+  <li><strong>Free, with ads</strong>Short ads between some levels; one purchase removes them.</li>
 </ul>
 
-<h2>Coming soon</h2>
-<p>Tide Trail is in development for iPhone. Questions or ideas? Email <a href="mailto:support@hineskeep.com">support@hineskeep.com</a>, or visit <a href="/tidetrail/support/">Tide Trail support</a>. Read how the game handles your data in the <a href="/tidetrail/privacy/">privacy policy</a>.</p>
+<h2>Coming in December 2026</h2>
+<p>Tide Trail is planned for the App Store in December 2026. Want to try it before then? Email <a href="mailto:support@hineskeep.com">support@hineskeep.com</a> and we'll send you a TestFlight invitation. Questions or ideas go to the same address, or see <a href="/tidetrail/support/">Tide Trail support</a>. Read how the game handles your data in the <a href="/tidetrail/privacy/">privacy policy</a>.</p>
+<!-- TestFlight public link: once one exists (App Store Connect → Tide Trail → TestFlight → External Testing → the group → Public Link), replace the sentence above with:
+<p><a class="btn" href="https://testflight.apple.com/join/XXXXXXXX">Try the beta on TestFlight</a></p>
+and the App Store badge replaces it on launch day. -->
