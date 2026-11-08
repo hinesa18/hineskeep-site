@@ -13,7 +13,7 @@ css: >-
 
 <article class="doc" aria-labelledby="pp">
 <h1 id="pp">Tide Trail privacy policy</h1>
-<p><strong>Last updated: November 8, 2026.</strong> This policy covers Tide Trail 1.0 for iPhone, the version on TestFlight and the one going to the App Store, made by Hines Keep (Austin Hines, an independent developer in Michigan, USA). It also covers this website. The November 7 version described a test build with no ads, analytics or purchases; this one describes the real game, and was updated the same evening for the build now on TestFlight, in which the Unity engine's own reports and Firebase's use of the advertising identifier are switched off.</p>
+<p><strong>Last updated: November 8, 2026.</strong> This policy covers Tide Trail 1.0 for iPhone, the version on TestFlight and the one going to the App Store, made by Hines Keep (Austin Hines, an independent developer in Michigan, USA). It also covers this website. The November 7 version described a test build with no ads, analytics or purchases; this one describes the real game. It was updated twice on November 8: for the build that switched off the Unity engine's own reports and Firebase's use of the advertising identifier, and for build 4, the one going to the App Store, which adds Meta's install measurement.</p>
 
 <h2>The short version</h2>
 <ul>
@@ -21,6 +21,7 @@ css: >-
   <li>Your progress is saved in one file on your iPhone. It never leaves your phone, except in your own iPhone backups.</li>
   <li>The game shows ads through Unity LevelPlay (ironSource Ads). The ad software collects technical details about your iPhone and, only if you allow tracking, its advertising identifier. Buying Remove Ads or the Starter Pack ends the ads between levels.</li>
   <li>Google's Firebase measures how the game is played (which levels, how long, which buttons) and sends the game its tuning numbers. To us the data is totals, not people.</li>
+  <li>Meta's app software counts whether one of our Facebook or Instagram ads brought you to the game. It uses your advertising identifier only if you allow tracking.</li>
   <li>Purchases go through Apple's App Store. We never see your card or your Apple ID.</li>
   <li>The game asks once whether it may track you (Apple's standard question). Saying no changes nothing in the game.</li>
   <li>The daily reminder is optional and is scheduled on your iPhone, not sent from a server.</li>
@@ -71,6 +72,9 @@ css: >-
 <p><strong>Firebase Remote Config</strong> is how the game fetches its tuning numbers from us when it starts (for example how many coins a level pays or how often ads may appear), so we can adjust them without a new version. That request carries the same random install identifier and basic device details, nothing more.</p>
 <p>Google's <a href="https://policies.google.com/privacy">privacy policy</a> and its page on <a href="https://firebase.google.com/support/privacy">privacy and security in Firebase</a> describe how Google handles this data.</p>
 
+<h2>Install measurement (Meta)</h2>
+<p>We plan to advertise Tide Trail on Facebook and Instagram, and to know whether those ads bring in players the game includes Meta's app software (the Meta SDK). When the game starts, and each time it comes back to the foreground, the software tells Meta "the app was opened"; Meta matches that against the ads it showed and reports installs to us as totals. If you allow tracking, that match uses your advertising identifier. If you don't, the software gets neither the identifier nor permission to track, and iOS blocks the tracking address it uses (ep1.facebook.com). Either way Meta receives technical details about your iPhone (model, iOS version, language, time zone, the app's version) and crash reports from its own software. There is no Facebook login, nothing to share and no Meta screen in the game. Meta's <a href="https://www.facebook.com/privacy/policy/">privacy policy</a> describes how Meta handles this data; we never receive anything about you personally.</p>
+
 <h2>In-app purchases (Apple's App Store)</h2>
 <p>The shop sells Remove Ads, the Starter Pack and three coin packs. Apple sells them and takes the payment: Hines Keep never receives your name, card details, billing address or Apple ID. Apple gives the game a receipt saying which product you bought or restored, and the game unlocks it on your iPhone. Unity's purchasing software (Unity IAP) carries the purchase between the game and Apple; in Tide Trail it isn't connected to Unity's own servers. Firebase Analytics records that a purchase happened, the product and its price, for our sales totals. Refunds are Apple's to give: ask at <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>. <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a> covers your purchase.</p>
 
@@ -89,11 +93,12 @@ css: >-
 <table>
   <tr><th>Data</th><th>Who collects it</th><th>Linked to you</th><th>Used for tracking</th></tr>
   <tr><td>Coarse location (country and region, from your IP address)</td><td>LevelPlay, Firebase</td><td>Yes</td><td>No</td></tr>
-  <tr><td>Device ID (the advertising identifier if you allow tracking, the vendor identifier, Firebase's install identifier)</td><td>LevelPlay, Firebase</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
+  <tr><td>Device ID (the advertising identifier if you allow tracking, the vendor identifier, Firebase's install identifier)</td><td>LevelPlay, Firebase, Meta</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
   <tr><td>Purchase history (which products you bought)</td><td>Firebase, from Apple's receipt</td><td>Yes</td><td>No</td></tr>
   <tr><td>Product interaction (levels played, buttons tapped)</td><td>Firebase, LevelPlay</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
   <tr><td>Advertising data (ads shown, watched, tapped)</td><td>LevelPlay, Firebase</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
-  <tr><td>Crash, performance and other diagnostic data (this version sends no crash reports; the ad and analytics software measure how they themselves ran)</td><td>LevelPlay, Firebase</td><td>No</td><td>No</td></tr>
+  <tr><td>Crash, performance and other diagnostic data</td><td>Meta (crash reports from its own software), LevelPlay, Firebase</td><td>No</td><td>No</td></tr>
+  <tr><td>Other data (Meta's technical bookkeeping, which Apple files under "other data types")</td><td>Meta</td><td>No</td><td>No</td></tr>
 </table>
 </div>
 
@@ -108,7 +113,7 @@ css: >-
   <li><strong>Tracking:</strong> answer no to Apple's question, or change it later under Settings → Privacy &amp; Security → Tracking.</li>
   <li><strong>Ads between levels:</strong> buy Remove Ads or the Starter Pack. Reward videos are always your choice.</li>
   <li><strong>Reminders:</strong> the switch in the game's settings, or Settings → Notifications → Tide Trail.</li>
-  <li><strong>Deleting your data:</strong> deleting the app deletes your save file. The data held by Google and Unity is tied to device identifiers we never see, so we can't find or delete it for you; their privacy policies (linked above) explain how to ask them directly. If you live somewhere with a privacy law that gives you rights over your data (the EU and the UK, California and other US states, and others), email us and we'll help as far as we can, including passing your request on to Google or Unity.</li>
+  <li><strong>Deleting your data:</strong> deleting the app deletes your save file. The data held by Google, Unity and Meta is tied to device identifiers we never see, so we can't find or delete it for you; their privacy policies (linked above) explain how to ask them directly. If you live somewhere with a privacy law that gives you rights over your data (the EU and the UK, California and other US states, and others), email us and we'll help as far as we can, including passing your request on to Google or Unity.</li>
 </ul>
 
 <h2>When you email us</h2>
