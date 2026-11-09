@@ -8,6 +8,7 @@ The studio website for Hines Keep (Austin Hines), published by GitHub Pages from
 | `/tidetrail/` | Tide Trail game page |
 | `/tidetrail/privacy/` | Privacy policy for 1.0: the save file, Unity LevelPlay (ironSource Ads), Firebase Analytics and Remote Config, Apple purchases, the tracking question, the daily reminder. Update it before a service is added |
 | `/tidetrail/support/` | Support and FAQ |
+| `/tidetrail/press/` | Press kit: the facts, what's in at launch, six real screenshots (full size in `assets/press/`), the icon and logo, the contact. Built by `_tools/build_assets.py --only press`; a slot for the public TestFlight link |
 | `/app-ads.txt` | Authorized ad sellers: `OWNERDOMAIN`, the ironSource Ads line (needs the LevelPlay publisher ID) and ironSource's reseller list from Unity's docs |
 
 No cookies, analytics, ads or third-party scripts. Fonts are self-hosted (Fredoka, SIL OFL).

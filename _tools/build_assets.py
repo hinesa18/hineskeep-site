@@ -9,13 +9,16 @@ WHAT IT DOES
   - phone screenshots from the game's real play-test captures;
   - favicon.svg / favicon.ico / apple-touch-icon.png (a simple keep tower:
     the studio logo is still being designed);
-  - og-hineskeep.png and og-tidetrail.png (1200 x 630).
+  - og-hineskeep.png and og-tidetrail.png (1200 x 630);
+  - the press kit (/tidetrail/press/): six real captures at 540 px for the page and
+    at full size (1290 x 2796, JPG) for download, the 1024 px app icon and the logo.
 
 HOW TO RUN
   py -3 _tools/build_assets.py --studio C:/dev/GameStudio
   python3 _tools/build_assets.py --studio ~/Developer/GameStudio-web-store --only icon,og
+  python3 _tools/build_assets.py --studio ~/Developer/GameStudio-web-store --only press
   Needs Pillow, plus fonttools and brotli for the font step (--only skips what
-  isn't named: fonts, art, icon, favicons, og). The GameStudio clone needs the LFS files
+  isn't named: fonts, art, icon, favicons, og, press). The GameStudio clone needs the LFS files
   for Status/img/2026-11-07_session-17_* and _ArtDevelopment/TideTrail/.
 
 STUDIO RULES
@@ -34,6 +37,18 @@ SAND = (251, 241, 228)
 TEAL = (22, 179, 198)
 DEEP = (11, 79, 92)
 INK = (23, 51, 59)
+
+# The press kit's captures (2026-11-08, round 7): the game's own playtest renders from
+# session 24, the newest build with the launch features; part B (about Nov 26 - Dec 2) may swap
+# them for session 29's release-candidate frames. (output name, capture file in Status/img/).
+PRESS_SHOTS = {
+    "clean": "2026-11-08_session-24_playtest_level3_half_drawn.png",
+    "stars": "2026-11-08_session-24_playtest_level8_three_stars.png",
+    "swimmer": "2026-11-08_session-24_playtest_swim_crab.png",
+    "theme": "2026-11-08_session-24_playtest_theme_night_tide.png",
+    "daily": "2026-11-08_session-24_playtest_home_daily_streak3.png",
+    "gifts": "2026-11-08_session-24_playtest_login_calendar.png",
+}
 
 # Published captures: (output name, capture file in Status/img/).
 SHOTS = {
@@ -84,6 +99,21 @@ def art_images(studio: Path, art: Path, out: Path):
         im = Image.open(src).convert("RGB")
         im.resize((540, round(im.height * 540 / im.width)), Image.LANCZOS).save(
             out / f"{name}.jpg", quality=84, optimize=True, progressive=True)
+
+
+def press_kit(studio: Path, art: Path, img_out: Path, kit_out: Path):
+    """The press page's screenshots (540 px) and its downloads (full-size JPGs, icon, logo)."""
+    img_out.mkdir(parents=True, exist_ok=True)
+    kit_out.mkdir(parents=True, exist_ok=True)
+    for name, capture in PRESS_SHOTS.items():
+        assert "gate_board" not in capture and "References" not in capture
+        im = Image.open(studio / "Status/img" / capture).convert("RGB")
+        im.resize((540, round(im.height * 540 / im.width)), Image.LANCZOS).save(
+            img_out / f"press-{name}.jpg", quality=84, optimize=True, progressive=True)
+        im.save(kit_out / f"tide-trail-{name}-{im.width}x{im.height}.jpg", quality=90, optimize=True)
+    Image.open(art / "icon/app_icon_1024.png").convert("RGB").save(
+        kit_out / "tide-trail-icon-1024.png", optimize=True)
+    shutil.copy(art / "loading/logo_tide_trail.png", kit_out / "tide-trail-logo-1024x600.png")
 
 
 def app_icon(art: Path, out: Path):
@@ -192,7 +222,7 @@ def og_images(studio: Path, art: Path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--studio", required=True, help="path to the GameStudio clone")
-    ap.add_argument("--only", default="fonts,art,icon,favicons,og",
+    ap.add_argument("--only", default="fonts,art,icon,favicons,og,press",
                     help="comma-separated steps to run (default: all)")
     args = ap.parse_args()
     studio = Path(args.studio)
@@ -208,6 +238,8 @@ def main():
         favicons()
     if "og" in steps:
         og_images(studio, art)
+    if "press" in steps:
+        press_kit(studio, art, SITE / "assets/img", SITE / "assets/press")
     print("done:", ", ".join(sorted(steps)))
 
 
