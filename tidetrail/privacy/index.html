@@ -13,18 +13,20 @@ css: >-
 
 <article class="doc" aria-labelledby="pp">
 <h1 id="pp">Tide Trail privacy policy</h1>
-<p><strong>Last updated: November 8, 2026.</strong> This policy covers Tide Trail 1.0 for iPhone, the version on TestFlight and the one going to the App Store, made by Hines Keep (Austin Hines, an independent developer in Michigan, USA). It also covers this website. The November 7 version described a test build with no ads, analytics or purchases; this one describes the real game. It was updated twice on November 8: for the build that switched off the Unity engine's own reports and Firebase's use of the advertising identifier, and for build 4, the one going to the App Store, which adds Meta's install measurement.</p>
+<p><strong>Last updated: November 9, 2026.</strong> This policy covers Tide Trail for iPhone, made by Hines Keep (Austin Hines, an independent developer in Michigan, USA): version 1.0 for the App Store and the TestFlight builds of the launch version that comes out on December 12, 2026. It also covers this website. This update adds what the TestFlight builds now bring, and the launch version keeps: crash reporting with Firebase Crashlytics, child mode, the Daily Tide leaderboard in Apple's Game Center, and the new things the game saves on your iPhone (stars, chests, gifts, looks, weekly goals and streak freezes). Version 1.0 has none of these. The versions of November 7 and 8, 2026 described the test builds and the first App Store build.</p>
 
 <h2>The short version</h2>
 <ul>
   <li>Tide Trail has no account and never asks for your name, email address or anything else about you.</li>
   <li>Your progress is saved in one file on your iPhone. It never leaves your phone, except in your own iPhone backups.</li>
   <li>The game shows ads through Unity LevelPlay (ironSource Ads). The ad software collects technical details about your iPhone and, only if you allow tracking, its advertising identifier. Buying Remove Ads or the Starter Pack ends the ads between levels.</li>
-  <li>Google's Firebase measures how the game is played (which levels, how long, which buttons) and sends the game its tuning numbers. To us the data is totals, not people.</li>
+  <li>Google's Firebase measures how the game is played (which levels, how long, which buttons), sends the game its tuning numbers and reports crashes. To us the data is totals, not people.</li>
   <li>Meta's app software counts whether one of our Facebook or Instagram ads brought you to the game. It uses your advertising identifier only if you allow tracking.</li>
   <li>Purchases go through Apple's App Store. We never see your card or your Apple ID.</li>
+  <li>The Daily Tide leaderboard uses Apple's Game Center. If you use it, Apple receives your solve time with your Game Center player profile; we never see your Apple ID.</li>
   <li>The game asks once whether it may track you (Apple's standard question). Saying no changes nothing in the game.</li>
   <li>The daily reminder is optional and is scheduled on your iPhone, not sent from a server.</li>
+  <li>If a law requires it, or a parent asks, the game switches to child mode: ads that don't use personal data, no tracking question and no Meta measurement (see "Children").</li>
   <li>Hines Keep doesn't sell your data and can't identify you. The ad service does receive device data to show ads, which some US state laws call "sharing"; you stop that by not allowing tracking.</li>
 </ul>
 
@@ -33,9 +35,15 @@ css: >-
 <ul>
   <li>your progress: the next level, how many levels you have finished and how many of them were Hard;</li>
   <li>your coins, hints and freezes, and whether you've received the free hint and freeze gifts;</li>
+  <li>your stars on every level and the star chests they've opened, the level chests you've opened, and where you are in the daily gift calendar (how many gifts you've claimed and the day of the last one);</li>
   <li>which sea critters have joined your album and which one swims your wins;</li>
+  <li>the looks you own and the ones you use: trail colors and pool themes;</li>
+  <li>this week's goals and your progress on them;</li>
+  <li>your streak freezes: how many you hold and how many Daily Tide wins count toward the next;</li>
   <li>your Daily Tide streak: the current and best streak, the last day you finished the daily puzzle and the last time you saved a streak;</li>
-  <li>whether you own Remove Ads and the Starter Pack;</li>
+  <li>for the Daily Tide leaderboard: a solve time still waiting to be sent to Game Center, the last day one was sent, and whether you said no to Game Center's sign-in;</li>
+  <li>whether you own Remove Ads, the Starter Pack and the Collector's Pack;</li>
+  <li>whether child mode is on, whether Apple's age check or the settings switch turned it on, and what kind of answer the age check last gave (for example "not required"), never an age;</li>
   <li>your sound, music, vibration and daily reminder settings;</li>
   <li>the time of your first launch and of the last save, how many times you've opened the game, the level at which the game asked iOS to show the rating prompt, and how many times it offered the reminder.</li>
 </ul>
@@ -67,16 +75,20 @@ css: >-
 <p>Change your answer any time under Settings → Privacy &amp; Security → Tracking → Tide Trail. If "Allow Apps to Request to Track" is switched off on your iPhone, the question never appears and the answer counts as no. The game asks only once.</p>
 
 <h2>Analytics and settings (Google Firebase)</h2>
-<p>We need to know whether the game works and whether people keep playing, so Tide Trail uses two Google Firebase services.</p>
-<p><strong>Firebase Analytics</strong> records what happens in the game as events: a level started or finished and how long it took, a hint or freeze used, the tide running out, a daily puzzle finished and the streak, a new critter, a reward video requested or finished, an ad shown between levels, a purchase and which product, and a setting switched. Firebase adds its own: the app opened, a session started, the app updated, the app version, the iPhone model and iOS version, the language, and your country and region, worked out from your IP address (Google doesn't keep the full address in our reports). Each install gets a random identifier so that Firebase can tell installs apart. We have switched off Firebase's reading of the advertising identifier, so Google never gets it from Tide Trail, whatever you answer to the tracking question. We look at this data as totals: how many players reach each level, how long they play, how many come back the next day. We don't see individual players and have no way to look one up.</p>
+<p>We need to know whether the game works and whether people keep playing, so Tide Trail uses three Google Firebase services.</p>
+<p><strong>Firebase Analytics</strong> records what happens in the game as events: a level started or finished and how long it took, a hint or freeze used, the tide running out, a daily puzzle finished and the streak, a new critter, stars and chests earned, a daily gift claimed, a look bought or chosen, a weekly goal finished, a streak freeze earned or used, a reward video requested or finished, an ad shown between levels, a purchase and which product, and a setting switched. Firebase adds its own: the app opened, a session started, the app updated, the app version, the iPhone model and iOS version, the language, and your country and region, worked out from your IP address (Google doesn't keep the full address in our reports). Each install gets a random identifier so that Firebase can tell installs apart. We have switched off Firebase's reading of the advertising identifier, so Google never gets it from Tide Trail, whatever you answer to the tracking question. We look at this data as totals: how many players reach each level, how long they play, how many come back the next day. We don't see individual players and have no way to look one up.</p>
 <p><strong>Firebase Remote Config</strong> is how the game fetches its tuning numbers from us when it starts (for example how many coins a level pays or how often ads may appear), so we can adjust them without a new version. That request carries the same random install identifier and basic device details, nothing more.</p>
+<p><strong>Firebase Crashlytics</strong> sends us a crash report when the game crashes or hits an error it can't handle, so we can find and fix the bug. A report holds what the game's code was doing at that moment, the game's version, the iPhone model, the iOS version, free memory and storage, and the time. It carries a random installation identifier that Crashlytics makes for the app, never your name, your advertising identifier or anything you typed. We read crash reports only to fix bugs, and nothing in them is used for ads.</p>
 <p>Google's <a href="https://policies.google.com/privacy">privacy policy</a> and its page on <a href="https://firebase.google.com/support/privacy">privacy and security in Firebase</a> describe how Google handles this data.</p>
 
 <h2>Install measurement (Meta)</h2>
 <p>We plan to advertise Tide Trail on Facebook and Instagram, and to know whether those ads bring in players the game includes Meta's app software (the Meta SDK). When the game starts, and each time it comes back to the foreground, the software tells Meta "the app was opened"; Meta matches that against the ads it showed and reports installs to us as totals. If you allow tracking, that match uses your advertising identifier. If you don't, the software gets neither the identifier nor permission to track, and iOS blocks the tracking address it uses (ep1.facebook.com). Either way Meta receives technical details about your iPhone (model, iOS version, language, time zone, the app's version) and crash reports from its own software. There is no Facebook login, nothing to share and no Meta screen in the game. Meta's <a href="https://www.facebook.com/privacy/policy/">privacy policy</a> describes how Meta handles this data; we never receive anything about you personally.</p>
 
+<h2>Game Center (the Daily Tide leaderboard)</h2>
+<p>The Daily Tide has a leaderboard for the day's fastest solve, worldwide and among your friends, in Apple's Game Center. The game connects to Game Center only when you first open the leaderboard or win a Daily Tide, never when it starts. If you're signed in to Game Center on your iPhone, iOS shows its own welcome banner; if not, iOS may offer to sign you in, and you can say no: the game plays the same without it. While you're signed in, each Daily Tide you win sends your solve time to Game Center under your Game Center player profile (the nickname and avatar you chose in Game Center, and the identifier Apple gives you for our game). Apple shows the times on the leaderboard and in Apple's Games app to other players according to your Game Center settings. Hines Keep doesn't receive your Apple ID, and the game doesn't pass your Game Center profile or identifier to Firebase, the ad service, Meta or anyone else. Manage or leave Game Center under Settings → Game Center on your iPhone. <a href="https://www.apple.com/legal/privacy/data/en/game-center/">Game Center &amp; Privacy</a> describes Apple's side.</p>
+
 <h2>In-app purchases (Apple's App Store)</h2>
-<p>The shop sells Remove Ads, the Starter Pack and three coin packs. Apple sells them and takes the payment: Hines Keep never receives your name, card details, billing address or Apple ID. Apple gives the game a receipt saying which product you bought or restored, and the game unlocks it on your iPhone. Unity's purchasing software (Unity IAP) carries the purchase between the game and Apple; in Tide Trail it isn't connected to Unity's own servers. Firebase Analytics records that a purchase happened, the product and its price, for our sales totals. Refunds are Apple's to give: ask at <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>. <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a> covers your purchase.</p>
+<p>The shop sells Remove Ads, the Starter Pack, the Collector's Pack (every trail color and pool theme at once) and three coin packs. Apple sells them and takes the payment: Hines Keep never receives your name, card details, billing address or Apple ID. Apple gives the game a receipt saying which product you bought or restored, and the game unlocks it on your iPhone. Unity's purchasing software (Unity IAP) carries the purchase between the game and Apple; in Tide Trail it isn't connected to Unity's own servers. Firebase Analytics records that a purchase happened, the product and its price, for our sales totals. Refunds are Apple's to give: ask at <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>. <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a> covers your purchase.</p>
 
 <h2>The daily reminder</h2>
 <p>After your first Daily Tide, the game asks whether you'd like a gentle reminder once a day. Only if you tap "Remind me" does iOS ask its own permission for notifications. The reminder arrives in the morning or the early evening, depending on when you usually play, with at most two quiet follow-ups if you've been away for a while. It is scheduled entirely on your iPhone: there's no server behind it and no push token. The game's analytics record that the switch was turned on or off, like the other settings, and nothing else. Turn it off any time with the Daily reminder switch in the game's settings (the gear on the home screen), or under Settings → Notifications → Tide Trail on your iPhone.</p>
@@ -97,22 +109,34 @@ css: >-
   <tr><td>Purchase history (which products you bought)</td><td>Firebase, from Apple's receipt</td><td>Yes</td><td>No</td></tr>
   <tr><td>Product interaction (levels played, buttons tapped)</td><td>Firebase, LevelPlay</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
   <tr><td>Advertising data (ads shown, watched, tapped)</td><td>LevelPlay, Firebase</td><td>Yes</td><td>Yes, if you allow tracking</td></tr>
-  <tr><td>Crash, performance and other diagnostic data</td><td>Meta (crash reports from its own software), LevelPlay, Firebase</td><td>No</td><td>No</td></tr>
+  <tr><td>Crash, performance and other diagnostic data</td><td>Firebase Crashlytics, Meta (crash reports from its own software), LevelPlay, Firebase</td><td>No</td><td>No</td></tr>
   <tr><td>Other data (Meta's technical bookkeeping, which Apple files under "other data types")</td><td>Meta</td><td>No</td><td>No</td></tr>
 </table>
 </div>
+
+<p>Game Center's leaderboard times and profile go to Apple, not to us, so Apple's own privacy information covers them rather than this table.</p>
 
 <h2>Location, camera, contacts</h2>
 <p>Tide Trail doesn't use your precise location, camera, microphone, photos or contacts. The only location it ever knows is the country and region that the ad and analytics services work out from your IP address, as described above.</p>
 
 <h2>Children</h2>
-<p>Tide Trail is a puzzle game for a general audience, rated 4+ on the App Store. It isn't aimed at children under 13, and we've told the ad service so. We don't knowingly collect personal data from children. If you're a parent or guardian and believe a child has given us personal data, email us and we'll delete it.</p>
+<p>Tide Trail is a puzzle game for a general audience, rated 4+ on the App Store. It isn't directed to children under 13, and we've told our ad services so. We don't knowingly collect personal data from children under 13.</p>
+<p><strong>Child mode.</strong> Where a law requires it (in Texas, for example), the game asks Apple whether the player is an adult, and Apple shows its own age sheet; the game learns an age range, never a birth date. If Apple's answer is under 18, or there's no answer, the game switches to child mode. A parent can also switch it on in the game's settings (the lock icon). In child mode:</p>
+<ul>
+  <li>the ad services are told the player is a child, so they show only ads that aren't based on personal data;</li>
+  <li>the game never asks the tracking question;</li>
+  <li>Meta's software doesn't start, or stops tracking and its automatic events if it already ran;</li>
+  <li>Firebase is told not to use the data for advertising; the analytics that keep the game running continue.</li>
+</ul>
+<p>The game saves only whether child mode is on and what kind of answer Apple last gave (for example "not required"), never an age, and that stays on your iPhone.</p>
+<p>If we learn that we've collected personal data from a child under 13, we'll delete it. If you're a parent or guardian and think your child has given us personal data, email <a href="mailto:support@hineskeep.com">support@hineskeep.com</a> and we'll delete what we can find. Most of the data described above is held by Google, Unity and Meta under device identifiers we never see, so we'll also pass your request on to them.</p>
 
 <h2>Your choices</h2>
 <ul>
   <li><strong>Tracking:</strong> answer no to Apple's question, or change it later under Settings → Privacy &amp; Security → Tracking.</li>
   <li><strong>Ads between levels:</strong> buy Remove Ads or the Starter Pack. Reward videos are always your choice.</li>
   <li><strong>Reminders:</strong> the switch in the game's settings, or Settings → Notifications → Tide Trail.</li>
+  <li><strong>The leaderboard:</strong> don't open it, or sign out of Game Center under Settings → Game Center.</li>
   <li><strong>Deleting your data:</strong> deleting the app deletes your save file. The data held by Google, Unity and Meta is tied to device identifiers we never see, so we can't find or delete it for you; their privacy policies (linked above) explain how to ask them directly. If you live somewhere with a privacy law that gives you rights over your data (the EU and the UK, California and other US states, and others), email us and we'll help as far as we can, including passing your request on to Google or Unity.</li>
 </ul>
 
