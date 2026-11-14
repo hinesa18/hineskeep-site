@@ -245,3 +245,6 @@ vidoomy.com, 8953515, RESELLER
 xandr.com, 7353, RESELLER
 zetaglobal.net, 525, RESELLER
 zmaticoo.com, 5135195, RESELLER
+
+# Liftoff Monetize (Vungle), direct (Liftoff publisher dashboard, Add Application, read 2026-11-14).
+vungle.com, 6af8d5f5969a21bd301cdb75, DIRECT, c107d686becd2d77
